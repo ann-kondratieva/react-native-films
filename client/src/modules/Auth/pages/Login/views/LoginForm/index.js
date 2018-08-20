@@ -18,7 +18,8 @@ const LoginForm = (props) => {
                 label="Email"
                 type="text"
                 placeholder='Email'
-                component={(props) => <RenderTextInput {...props} placeholderTextColor='white' />}
+                placeholderTextColor='white'
+                component={RenderTextInput}
             />
             <Field
                 style={styles.textField}
@@ -27,7 +28,8 @@ const LoginForm = (props) => {
                 type="password"
                 placeholder='Password'
                 secureTextEntry={true}
-                component={(props) => <RenderTextInput {...props} placeholderTextColor='white' />}
+                placeholderTextColor='white'
+                component={RenderTextInput}
             />
             <Button style={styles.button} disabled={pristine || submitting} block onPress={handleSubmit} title='login'>
                 <Text style={styles.logIn}>SIGN IN</Text>

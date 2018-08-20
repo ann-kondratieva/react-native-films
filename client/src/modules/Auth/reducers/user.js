@@ -24,7 +24,7 @@ const user = handleActions(
             return action.response.user;
         },
         [registerActionCreators.registerSuccess]: (state, action) => {
-            return action.response.user;
+            return action.response.newUser;
         },
     },
     initialState

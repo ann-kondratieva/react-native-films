@@ -8,9 +8,6 @@ import persistedReducer from '../reducers';
 
 const sagaMonitor = Reactotron.createSagaMonitor();
 const sagaMiddleware = createSagaMiddleware({
-    context: {
-        success: null
-    },
     sagaMonitor
 });
 

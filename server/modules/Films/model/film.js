@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import countAverage from '../services/countAverage';
 
 const Schema = mongoose.Schema;
 
@@ -41,23 +40,12 @@ const FilmsSchema = new Schema({
             type: Date,
             required: true
         }
-    }]
+    }],
+    rating: Number
 }, {
-    timestamps: true,
-    toObject: {
-        virtuals: true
-    },
-    toJSON: {
-        virtuals: true
-    }
+    timestamps: true
 });
 
-FilmsSchema
-    .virtual('rating')
-    .get(function () {
-        let rating = countAverage(this.usersMarks);
-        return rating;
-    });
 
 
 

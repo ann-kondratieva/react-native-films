@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
-import { colors } from '../../../../../../constants';
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-        height: '100%'
+        flex: 1
     },
     loader: {
         margin: 60
+    },
+    content: {
+
     }
 });
 

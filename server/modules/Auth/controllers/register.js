@@ -8,7 +8,8 @@ const register = async (req, res) => {
     try {
         let user = await User.findOne({ $or: [{ email }, { username }] });
         if (user) {
-            return res.status(401).send({ message: 'User already exists.' });
+            res.status(401);
+            return res.send({ message: 'User already exists.' });
         }
         let newUser = new User({
             username,

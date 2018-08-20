@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white'
+        height: '100%'
     },
+    gallery: {
+        backgroundColor: 'white',
+    }
 });
 
 export default styles;

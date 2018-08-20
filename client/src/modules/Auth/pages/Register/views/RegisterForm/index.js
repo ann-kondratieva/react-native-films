@@ -10,7 +10,7 @@ import styles from './styles';
 import RenderTextInput from '../../../../../../views/RenderTextInput';
 
 const RegisterForm = (props) => {
-    const { handleSubmit, pristine, submitting, error } = props;
+    const { handleSubmit, pristine, submitting } = props;
     return (
         <View keyboardShouldPersistTaps={'handled'} style={styles.container}>
             <Field
@@ -19,7 +19,8 @@ const RegisterForm = (props) => {
                 label="Username"
                 type="text"
                 placeholder='Username'
-                component={(props) => <RenderTextInput {...props} placeholderTextColor='white' />}
+                placeholderTextColor='white'
+                component={RenderTextInput}
             />
             <Field
                 style={styles.textField}
@@ -27,7 +28,8 @@ const RegisterForm = (props) => {
                 label="Email"
                 type="text"
                 placeholder='Email'
-                component={(props) => <RenderTextInput {...props} placeholderTextColor='white' />}
+                placeholderTextColor='white'
+                component={RenderTextInput}
             />
             <Field
                 style={styles.textField}
@@ -36,7 +38,8 @@ const RegisterForm = (props) => {
                 type="password"
                 placeholder='Password'
                 secureTextEntry={true}
-                component={(props) => <RenderTextInput {...props} placeholderTextColor='white' />}
+                placeholderTextColor='white'
+                component={RenderTextInput}
             />
             <Button style={styles.button} disabled={pristine || submitting} block onPress={handleSubmit} title='login'>
                 <Text style={styles.logIn}>SIGN UP</Text>

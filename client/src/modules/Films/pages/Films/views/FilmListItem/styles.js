@@ -4,6 +4,7 @@ import { robotoWeights } from 'react-native-typography';
 const styles = StyleSheet.create({
     container: {
         width: '45%',
+        minWidth: '45%',
         height: 210,
         backgroundColor: 'white',
         marginLeft: 'auto',

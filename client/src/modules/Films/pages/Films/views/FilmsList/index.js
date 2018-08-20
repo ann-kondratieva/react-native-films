@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FlatList, RefreshControl, Text, View } from 'react-native';
-import Reactotron from 'reactotron-react-native';
+import { FlatList, RefreshControl, Text, View, Animated } from 'react-native';
 import ScrollUp from 'react-native-scroll-up';
 
 import FilmsListItem from '../FilmListItem';
@@ -9,35 +8,53 @@ import { colors } from '../../../../../../constants';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import ListFooter from '../ListFooter';
+import reactotronReactNative from 'reactotron-react-native';
+import { SERVICE_HEIGHT } from '../../constants';
 
-const FilmsList = ({ items, loadMore, hasMore, onClick, refreshing, onRefresh, isFabVisible, handleOnScroll, loading }) => {
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+
+const FilmsList = ({ items, loadMore, hasMore, onClick, isRefreshing, onRefresh, isLoading, isFabVisible, scrollAnim, handleOnScroll,
+    _onMomentumScrollBegin, _onMomentumScrollEnd, _onScrollEndDrag }) => {
     return (
         <React.Fragment>
-            <FlatList
-                ListFooterComponent={<ListFooter isLoading={loading} isRefreshing={refreshing} hasMore={hasMore} />}
+            <AnimatedFlatList
+                ListFooterComponent={<ListFooter isLoading={isLoading} isRefreshing={isRefreshing} hasMore={hasMore} itemsLength={items.length} />}
                 ListEmptyComponent={<View style={styles.textContainer}><Text style={styles.text}>Nothing to show :( </Text></View>}
-                ref={scrollview => {
-                    this.scrollview = scrollview;
+                ref={scrollView => {
+                    this.scrollView = scrollView;
                 }}
-                onScroll={event => handleOnScroll(event)}
+                onMomentumScrollBegin={_onMomentumScrollBegin}
+                onMomentumScrollEnd={_onMomentumScrollEnd}
+                onScrollEndDrag={_onScrollEndDrag}
+                scrollEventThrottle={1}
+                onScroll={Animated.event(
+                    [{ nativeEvent: { contentOffset: { y: scrollAnim } } }],
+                    {
+                        useNativeDriver: true,
+                        listener: event => {
+                            handleOnScroll(event);
+                        },
+                    },
+                )}
                 contentContainerStyle={styles.container}
                 data={items}
                 numColumns={2}
                 keyExtractor={(item) => item._id}
                 renderItem={({ item }) => <FilmsListItem item={item} onClick={onClick} />}
-                onEndReached={loadMore}
+                onEndReached={hasMore ? loadMore : null}
                 onEndReachedThreshold={0.8}
                 refreshControl={
                     <RefreshControl
-                        refreshing={refreshing}
+                        refreshing={isRefreshing}
                         onRefresh={onRefresh}
                         colors={[colors.primary, colors.secondary]}
+                        progressViewOffset={SERVICE_HEIGHT + 30}
                     />
                 }
             />
             <ScrollUp
                 refView="FlatList"
-                root={this.scrollview}
+                root={this.scrollView ? this.scrollView.getNode() : null}
                 type="icon"
                 icon={<Icon size={24} name="arrow-up" style={styles.arrow} />}
                 backgroundColor={colors.primary}
@@ -51,14 +68,18 @@ const FilmsList = ({ items, loadMore, hasMore, onClick, refreshing, onRefresh, i
 
 FilmsList.propTypes = {
     items: PropTypes.array.isRequired,
-    refreshing: PropTypes.bool.isRequired,
+    isRefreshing: PropTypes.bool.isRequired,
     loadMore: PropTypes.func.isRequired,
     onRefresh: PropTypes.func.isRequired,
-    isFabVisible: PropTypes.bool.isRequired,
-    handleOnScroll: PropTypes.func.isRequired,
-    loading: PropTypes.bool.isRequired,
+    isLoading: PropTypes.bool.isRequired,
     hasMore: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
+    handleOnScroll: PropTypes.func.isRequired,
+    isFabVisible: PropTypes.bool.isRequired,
+    scrollAnim: PropTypes.object.isRequired,
+    _onMomentumScrollBegin: PropTypes.func.isRequired,
+    _onMomentumScrollEnd: PropTypes.func.isRequired,
+    _onScrollEndDrag: PropTypes.func.isRequired,
 };
 
 export default FilmsList;

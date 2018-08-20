@@ -5,6 +5,7 @@ import authActionCreators from '../actions';
 import loginSaga from '../pages/Login/saga';
 import registerSaga from '../pages/Register/saga';
 import { navigate } from '../../../services/navigationService';
+import modalActionCreators from '../../../components/Modal/actions';
 
 const redirectToLogin = function () {
     //yield put(push('/login'));
@@ -13,7 +14,7 @@ const redirectToLogin = function () {
 
 const authError = function* (action) {
     const { form, error } = action.payload;
-    yield put(authActionCreators.openModal(error));
+    yield put(modalActionCreators.openModal(error));
     yield put(stopSubmit(form, { _error: error }));
 };
 

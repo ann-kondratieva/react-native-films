@@ -8,6 +8,7 @@ import makeRequest from '../services/makeRequest';
 import userSelectors from '../modules/Auth/selectors';
 import authHeader from '../services/authHeader';
 import authActions from '../modules/Auth/actions';
+import reactotronReactNative from 'reactotron-react-native';
 
 const watchRequest = function* (action) {
     try {
@@ -22,6 +23,7 @@ const watchRequest = function* (action) {
             response: response ? response.data : {}
         });
     } catch (error) {
+        reactotronReactNative.log(error);
         if (error.response.status === 401) {
             yield put(authActions.authError({
                 form: action.type.replace('_REQUEST', '_FORM'),

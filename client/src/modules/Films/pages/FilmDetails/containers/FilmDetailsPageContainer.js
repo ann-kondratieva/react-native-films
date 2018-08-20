@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import filmActionCreators from '../actions';
 import selectors from '../selectors';
 import Reactotron from 'reactotron-react-native';
-import PageHeader from '../views/Header';
 import FilmContainer from './FilmContainer';
+import PageHeader from '../../../../../components/Header';
 
 class FilmDetailsPageContainer extends Component {
 

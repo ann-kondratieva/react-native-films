@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     container: {
-        elevation: 0,
+        elevation: 0
     }
 });
 

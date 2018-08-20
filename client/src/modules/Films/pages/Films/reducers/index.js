@@ -2,16 +2,18 @@ import { combineReducers } from 'redux';
 
 import error from './error';
 import items from './items';
-import loading from './loading';
+import isLoading from './isLoading';
 import hasMore from './hasMore';
-import refreshing from './refreshing';
+import isRefreshing from './isRefreshing';
+import isSearching from './isSearching';
 
 const filmList = combineReducers({
     error,
     items,
-    loading,
+    isLoading,
     hasMore,
-    refreshing
+    isRefreshing,
+    isSearching
 });
 
 export default filmList;

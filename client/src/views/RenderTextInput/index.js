@@ -26,7 +26,8 @@ const RenderTextInput = (props) => {
 
 RenderTextInput.propTypes = {
     input: PropTypes.object.isRequired,
-    meta: PropTypes.object.isRequired
+    meta: PropTypes.object.isRequired,
+    placeholderTextColor: PropTypes.string
 };
 
 export default RenderTextInput;

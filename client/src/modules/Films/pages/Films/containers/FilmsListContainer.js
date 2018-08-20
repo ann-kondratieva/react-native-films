@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Reactotron from 'reactotron-react-native';
 import { withNavigation } from 'react-navigation';
-//import { getFormValues } from 'redux-form';
 
 import filmsActionCreators from '../actions';
 import filmSelectors from '../selectors/index';
 import FilmsList from '../views/FilmsList';
+import { View, Container } from 'native-base';
+import PickerContainer from './PickerContainer';
+import { Animated } from 'react-native';
+import { SERVICE_HEIGHT } from '../constants';
+import reactotronReactNative from 'reactotron-react-native';
 
 class FilmsListContainer extends Component {
 
@@ -18,9 +21,54 @@ class FilmsListContainer extends Component {
         this.onRefresh = this.onRefresh.bind(this);
         this.handleOnScroll = this.handleOnScroll.bind(this);
         this.onFilmClick = this.onFilmClick.bind(this);
+        this._onMomentumScrollBegin = this._onMomentumScrollBegin.bind(this);
+        this._onMomentumScrollEnd = this._onMomentumScrollEnd.bind(this);
+        this._onScrollEndDrag = this._onScrollEndDrag.bind(this);
+
+        const scrollAnim = new Animated.Value(0);
+        const offsetAnim = new Animated.Value(0);
+
         this.state = {
-            isFabVisible: false
+            isFabVisible: false,
+            scrollAnim,
+            offsetAnim,
+            clampedScroll: Animated.diffClamp(
+                Animated.add(
+                    scrollAnim.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0, 1],
+                        extrapolateLeft: 'clamp',
+                    }),
+                    offsetAnim
+                ),
+                0,
+                SERVICE_HEIGHT
+            ),
         };
+    }
+
+    _clampedScrollValue = 0;
+    _offsetValue = 0;
+    _scrollValue = 0;
+
+    componentDidMount() {
+        this.state.scrollAnim.addListener(({ value }) => {
+            //reactotronReactNative.log(value);
+            const diff = value - this._scrollValue;
+            this._scrollValue = value;
+            this._clampedScrollValue = Math.min(
+                Math.max(this._clampedScrollValue + diff, 0),
+                NAVBAR_HEIGHT - STATUS_BAR_HEIGHT,
+            );
+        });
+        this.state.offsetAnim.addListener(({ value }) => {
+            this._offsetValue = value;
+        });
+    }
+
+    componentWillUnmount() {
+        this.state.scrollAnim.removeAllListeners();
+        this.state.offsetAnim.removeAllListeners();
     }
 
     onFilmClick(_id) {
@@ -39,6 +87,27 @@ class FilmsListContainer extends Component {
                 isFabVisible: false,
             });
         }
+    };
+
+    _onScrollEndDrag() {
+        this._scrollEndTimer = setTimeout(this._onMomentumScrollEnd, 250);
+    };
+
+    _onMomentumScrollBegin() {
+        clearTimeout(this._scrollEndTimer);
+    };
+
+    _onMomentumScrollEnd() {
+        reactotronReactNative.log(this.state.scrollAnim.__getValue());
+        const toValue = this._scrollValue > SERVICE_HEIGHT &&
+            this._clampedScrollValue > (SERVICE_HEIGHT) / 2
+            ? this._offsetValue + SERVICE_HEIGHT
+            : this._offsetValue - SERVICE_HEIGHT;
+        Animated.timing(this.state.offsetAnim, {
+            toValue,
+            duration: 350,
+            useNativeDriver: true,
+        }).start();
     };
 
     loadMore() {
@@ -61,29 +130,35 @@ class FilmsListContainer extends Component {
     }
 
     render() {
-        const { filmsState: { refreshing, items, hasMore, loading } } = this.props;
+        const { filmsState: { isRefreshing, items, hasMore, isLoading } } = this.props;
+        //reactotronReactNative.log(this.state.scrollAnim.__getValue());
         const props = {
             items,
             onClick: this.onFilmClick,
             loadMore: this.loadMore,
             hasMore,
-            refreshing,
+            isRefreshing,
             onRefresh: this.onRefresh,
-            isFabVisible: this.state.isFabVisible,
             handleOnScroll: this.handleOnScroll,
-            loading
+            isLoading,
+            isFabVisible: this.state.isFabVisible,
+            scrollAnim: this.state.scrollAnim,
+            _onScrollEndDrag: this._onScrollEndDrag,
+            _onMomentumScrollBegin: this._onMomentumScrollBegin,
+            _onMomentumScrollEnd: this._onMomentumScrollEnd
         };
         return (
-            <FilmsList {...props} />
-
+            <Container >
+                <FilmsList {...props} />
+                <PickerContainer clampedScroll={this.state.clampedScroll} />
+            </Container>
         );
     }
 };
 
 function mapStateToProps(state) {
     return {
-        filmsState: filmSelectors.getFilmsState(state),
-        //formValues: getFormValues(SERVICES_FORM)(state)
+        filmsState: filmSelectors.getFilmsState(state)
     };
 }
 

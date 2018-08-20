@@ -20,7 +20,7 @@ const FilmData = ({ film }) => {
             </View>
             <View style={styles.textContainer}>
                 <Text style={styles.titleText}>Description</Text>
-                <Text style={styles.text}>{film ? film.description : ''}</Text>
+                <Text style={styles.text}> {film ? film.description : ''}</Text>
             </View>
         </ScrollView>
     );

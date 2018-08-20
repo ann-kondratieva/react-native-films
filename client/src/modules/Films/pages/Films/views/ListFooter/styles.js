@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     loader: {
-        margin: 10
+        margin: 10,
+
     },
     text: {
         ...robotoWeights.regular,

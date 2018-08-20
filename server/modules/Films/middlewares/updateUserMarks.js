@@ -1,4 +1,5 @@
 import Film from '../model/film';
+import countAverage from '../services/countAverage';
 
 const updateUserMarks = async (req, res, next) => {
     try {
@@ -7,6 +8,7 @@ const updateUserMarks = async (req, res, next) => {
         let startIndex = updatedFilm.usersMarks.findIndex((element) => element.id === userId);
         startIndex = (startIndex === -1) ? (updatedFilm.usersMarks.length) : startIndex;
         updatedFilm.usersMarks.splice(startIndex, 1, { id: userId, mark: rating });
+        updatedFilm.rating = countAverage(updatedFilm.usersMarks);
         req.body.film = updatedFilm;
         return next();
     } catch (error) {

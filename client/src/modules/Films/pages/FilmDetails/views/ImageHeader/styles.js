@@ -4,8 +4,7 @@ import { robotoWeights } from 'react-native-typography';
 const styles = StyleSheet.create({
     linearGradient: {
         height: 290,
-        alignItems: 'center',
-        justifyContent: 'center'
+        width: '100%'
     },
     image: {
         width: 200,
@@ -14,6 +13,11 @@ const styles = StyleSheet.create({
         shadowColor: 'grey',
         shadowOpacity: 0.5,
         shadowRadius: 10,
+    },
+    scrollContainer: {
+        flexGrow: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 

@@ -7,11 +7,6 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 20
     },
-    header: {
-        flexDirection: 'row',
-        height: 55,
-        alignItems: 'center'
-    },
     menuButton: {
         marginLeft: 18,
         marginRight: 20

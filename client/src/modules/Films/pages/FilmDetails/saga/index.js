@@ -2,7 +2,7 @@ import { takeEvery, all, put } from 'redux-saga/effects';
 import { stopSubmit, startSubmit, reset } from 'redux-form';
 
 import filmActionCreators from '../actions';
-import { COMMENT_FORM } from '../../../../../components/Comments/constants';
+import { COMMENT_FORM } from '../../Comments/constants';
 //import gallerySaga from '../components/Gallery/saga';
 
 const stopSubmitting = function* () {
@@ -18,7 +18,6 @@ const filmDetailsSaga = function* () {
     yield all([
         takeEvery(filmActionCreators.updateFilmSuccess, stopSubmitting),
         takeEvery(filmActionCreators.updateFilmRequest, startSubmitting),
-        //gallerySaga()
     ]);
 };
 

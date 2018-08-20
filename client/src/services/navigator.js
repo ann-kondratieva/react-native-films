@@ -5,8 +5,9 @@ import Films from '../modules/Films/pages/Films';
 import FilmDetails from '../modules/Films/pages/FilmDetails';
 import Login from '../modules/Auth/pages/Login';
 import Register from '../modules/Auth/pages/Register';
-import Test from '../modules/Films/pages/Test';
 import Sidebar from '../components/SideBar';
+import CommentsContainer from '../modules/Films/pages/Comments';
+
 
 const AppStack = createStackNavigator({
     FilmDetails: {
@@ -15,8 +16,8 @@ const AppStack = createStackNavigator({
     Films: {
         screen: Films
     },
-    Test: {
-        screen: Test
+    Comments: {
+        screen: CommentsContainer
     }
 },
 {

@@ -8,8 +8,11 @@ const filmsActionCreators = {
     setHasMore: createAction('SET_HAS_MORE'),
     redirectToFilm: createAction('REDIRECT_TO_FILM'),
     loadMoreFilms: createAction('LOAD_MORE_FILMS'),
-    applyFormChange: createAction('APPLY_FORM_CHANGE'),
     startRefreshing: createAction('START_REFRESHING'),
+    applyFormChange: createAction('APPLY_FORM_CHANGE'),
+    openSearch: createAction('OPEN_SEARCH'),
+    closeSearch: createAction('CLOSE_SEARCH'),
+    resetAndUpdateList: createAction('RESET_AND_UPDATE_LIST'),
 };
 
 export default filmsActionCreators;
