@@ -11,7 +11,7 @@ class MainNavigator extends Component {
 
     render() {
         return (
-            <Navigator ref={nav => { this.navigator = nav; }} />
+            <Navigator persistenceKey={'NavigationState'} ref={nav => { this.navigator = nav; }} />
         );
     }
 

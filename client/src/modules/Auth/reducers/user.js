@@ -3,6 +3,8 @@ import { handleActions } from 'redux-actions';
 import authActionCreators from '../actions';
 import loginActionCreators from '../pages/Login/actions';
 import registerActionCreators from '../pages/Register/actions';
+import profileActionCreators from '../pages/Profile/actions';
+import reactotronReactNative from 'reactotron-react-native';
 
 let initialState = {};
 
@@ -25,6 +27,9 @@ const user = handleActions(
         },
         [registerActionCreators.registerSuccess]: (state, action) => {
             return action.response.newUser;
+        },
+        [profileActionCreators.updateUserSuccess]: (state, action) => {
+            return action.response.user;
         },
     },
     initialState

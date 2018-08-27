@@ -23,7 +23,7 @@ class LoginContainer extends Component {
     handleSubmit({ email, password }) {
         const { loginRequest } = this.props.actions;
         const userData = {
-            email,
+            email: email.trim(),
             password
         };
         loginRequest(userData);

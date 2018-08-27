@@ -5,6 +5,7 @@ import { reducer as formReducer } from 'redux-form';
 
 import films from '../modules/Films/reducers';
 import auth from '../modules/Auth/reducers';
+import modal from '../components/Modal/reducers';
 
 const rootPersistConfig = {
     key: 'root',
@@ -19,6 +20,7 @@ const authPersistConfig = {
 
 const rootReducer = combineReducers({
     films,
+    modal,
     auth: persistReducer(authPersistConfig, auth),
     form: formReducer
 });

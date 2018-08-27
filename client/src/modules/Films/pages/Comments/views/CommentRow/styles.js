@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         maxWidth: Dimensions.get('window').width - Dimensions.get('window').width / 4
+    },
+    content: {
+        width: '100%'
     }
 });
 

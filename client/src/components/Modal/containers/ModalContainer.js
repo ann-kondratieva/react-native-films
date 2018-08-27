@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import userSelectors from '../../../modules/Auth/selectors';
 import Modal from '../views/Modal';
 import modalActionCreators from '../actions';
+import modalSelectors from '../selectors';
 
 class ModalContainer extends Component {
 
@@ -42,7 +42,7 @@ ModalContainer.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        error: userSelectors.getError(state),
+        error: modalSelectors.getError(state),
     };
 }
 

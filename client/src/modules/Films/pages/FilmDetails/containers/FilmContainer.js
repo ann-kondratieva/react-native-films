@@ -24,6 +24,7 @@ class FilmContainer extends Component {
         let comment = {
             userId: user._id,
             userName: user.username,
+            userAvatar: user.avatar,
             message,
             createdAt: new Date()
         };

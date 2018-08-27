@@ -32,6 +32,9 @@ const FilmsSchema = new Schema({
             type: String,
             required: true
         },
+        userAvatar: {
+            type: String,
+        },
         message: {
             type: String,
             required: true

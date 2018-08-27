@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         width: '60%',
         paddingLeft: '10%',
         justifyContent: 'center',
-        height: 45
+        height: 45,
     },
     linearGradient: {
         height: 2,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         height: SERVICE_HEIGHT,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     }
 });
 

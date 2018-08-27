@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-import modalActionCreators from '../../../components/Modal/actions';
+import modalActionCreators from '../actions';
 
 let initialState = null;
 

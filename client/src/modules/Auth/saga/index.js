@@ -6,9 +6,9 @@ import loginSaga from '../pages/Login/saga';
 import registerSaga from '../pages/Register/saga';
 import { navigate } from '../../../services/navigationService';
 import modalActionCreators from '../../../components/Modal/actions';
+import profileSaga from '../pages/Profile/saga';
 
 const redirectToLogin = function () {
-    //yield put(push('/login'));
     navigate('Login');
 };
 
@@ -22,6 +22,7 @@ const authSaga = function* () {
     yield all([
         loginSaga(),
         registerSaga(),
+        profileSaga(),
         takeEvery(authActionCreators.logout, redirectToLogin),
         takeEvery(authActionCreators.authError, authError),
     ]);

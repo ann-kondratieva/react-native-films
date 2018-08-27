@@ -9,20 +9,21 @@ import {
     Image,
 } from 'react-native';
 import Moment from 'react-moment';
+import placeholder from '../../../../../../../userplaceholder.png';
 
-const CommentRow = ({ comment }) => {
+const CommentRow = ({ comment: { createdAt, userAvatar, userName, message } }) => {
     return (
-        <View style={styles.container} key={comment.createdAt}>
-            <Image style={styles.image} source={{ uri: 'https://loremflickr.com/320/240' }} />
+        <View style={styles.container} key={createdAt}>
+            <Image style={styles.image} source={userAvatar ? { uri: userAvatar } : placeholder} />
             <View style={styles.content}>
                 <View style={styles.contentHeader}>
-                    <Text style={styles.name}>{comment.userName}</Text>
+                    <Text style={styles.name}>{userName}</Text>
                     <Text style={styles.time}>
-                        <Moment element={Text} format="YYYY/MM/DD HH:mm">{comment.createdAt}</Moment>
+                        <Moment element={Text} format="YYYY/MM/DD HH:mm">{createdAt}</Moment>
                     </Text>
                 </View>
                 <View style={styles.textContainer}>
-                    <Text style={styles.text}>{comment.message}</Text>
+                    <Text style={styles.text}>{message}</Text>
                 </View>
             </View>
         </View>

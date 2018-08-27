@@ -41,6 +41,16 @@ const styles = StyleSheet.create({
     },
     list: {
         paddingTop: 7
+    },
+    imageContainer: {
+        paddingLeft: 30
+    },
+    image: {
+        borderRadius: 100,
+        borderColor: 'white',
+        borderWidth: 1,
+        width: 65,
+        height: 65
     }
 });
 

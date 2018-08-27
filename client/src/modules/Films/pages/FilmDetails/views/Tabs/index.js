@@ -10,7 +10,7 @@ import FilmData from '../FilmData';
 import Gallery from '../../../../../../components/Gallery';
 import { colors } from '../../../../../../constants';
 import { robotoWeights } from 'react-native-typography';
-import CommentBox from '../CommentBox';
+import CommentTab from '../CommentTab';
 
 const TabsView = ({ film, openComments }) => {
     return (
@@ -22,7 +22,7 @@ const TabsView = ({ film, openComments }) => {
                 <Gallery images={film ? film.images : []} />
             </Tab>
             <Tab heading="COMMENTS" tabStyle={styles.item} textStyle={styles.text} activeTextStyle={styles.textActive} activeTabStyle={styles.itemActive}>
-                <CommentBox comments={film ? film.comments : []} openComments={openComments} />
+                <CommentTab comments={film ? film.comments : []} openComments={openComments} />
             </Tab>
         </Tabs>
     );

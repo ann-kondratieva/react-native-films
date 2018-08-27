@@ -21,6 +21,14 @@ export default {
             data: payload,
             headers: {}
         };
+    },
+    updateUserRequest: (payload) => {
+        return {
+            url: '/api/auth/user/' + payload.user._id,
+            method: 'put',
+            headers: {},
+            data: payload
+        };
     }
 
 };

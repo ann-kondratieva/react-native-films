@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 
 import token from './token';
 import user from './user';
-import error from './error';
+import profile from '../pages/Profile/reducers';
 
 const auth = combineReducers({
     token,
     user,
-    error
+    profile
 });
 
 export default auth;

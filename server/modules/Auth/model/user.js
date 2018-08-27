@@ -17,7 +17,10 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    avatar: {
+        type: String
+    },
 });
 
 UserSchema.pre('save', function (next) {
@@ -42,7 +45,7 @@ UserSchema.pre('save', function (next) {
 
 UserSchema.methods.comparePassword = async function (password) {
     let truePassword = this.password;
-    let isMatch = await new Promise((resolve, reject) => {
+    const isMatch = await new Promise((resolve, reject) => {
         bcrypt.compare(password, truePassword, function (err, isMatch) {
             if (err) {
                 reject(err);

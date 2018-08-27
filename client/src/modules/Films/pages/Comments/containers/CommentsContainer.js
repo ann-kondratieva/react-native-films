@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Reactotron from 'reactotron-react-native';
-import CommentBox from '../views/CommentBox';
 import PageHeader from '../../../../../components/Header';
 import filmSelectors from '../../FilmDetails/selectors';
 import filmActionCreators from '../../FilmDetails/actions';
 import commentActionCreators from '../actions';
 import selectors from '../selectors';
+import CommentScreen from '../views/CommentScreen';
 
 class CommentsContainer extends Component {
 
@@ -42,7 +42,7 @@ class CommentsContainer extends Component {
         return (
             <React.Fragment>
                 <PageHeader {...headerProps} />
-                <CommentBox {...props} />
+                <CommentScreen {...props} />
             </React.Fragment>
         );
     }

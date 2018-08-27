@@ -38,5 +38,6 @@ async function (email, password, done) {
             return done(null, false, { message: 'Wrong password.' });
         }
     }
+
 }
 );

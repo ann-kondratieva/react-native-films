@@ -27,6 +27,7 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "history": "^3.3.0",
+    "image-size": "^0.6.3",
     "joi": "^13.4.0",
     "joi-browser": "^13.4.0",
     "jsonwebtoken": "^8.3.0",
@@ -35,6 +36,7 @@
     "mongoose": "^5.1.7",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.5",
+    "npm": "^6.4.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"

@@ -23,7 +23,6 @@ const watchRequest = function* (action) {
             response: response ? response.data : {}
         });
     } catch (error) {
-        reactotronReactNative.log(error);
         if (error.response.status === 401) {
             yield put(authActions.authError({
                 form: action.type.replace('_REQUEST', '_FORM'),
@@ -31,7 +30,7 @@ const watchRequest = function* (action) {
             }));
         } else yield put({
             type: action.type.replace('_REQUEST', '_ERROR'),
-            error: error.response.statusText
+            error: error.response.data.message
         });
     }
 };

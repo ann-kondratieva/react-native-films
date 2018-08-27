@@ -8,13 +8,14 @@ import authActionCreators from '../../../modules/Auth/actions';
 import Sidebar from '../views/SideBar';
 import userSelectors from '../../../modules/Auth/selectors';
 import { navigate } from '../../../services/navigationService';
+import reactotronReactNative from 'reactotron-react-native';
 
 class SideBarContainer extends Component {
 
     constructor(props) {
         super(props);
         this.onLogOut = this.onLogOut.bind(this);
-        this.onHomeClick = this.onHomeClick.bind(this);
+        this.onNavigateClick = this.onNavigateClick.bind(this);
     }
 
     onLogOut() {
@@ -22,20 +23,20 @@ class SideBarContainer extends Component {
         logout();
     }
 
-    onHomeClick() {
+    onNavigateClick(route) {
         const { navigation: { closeDrawer } } = this.props;
         closeDrawer();
-        navigate('Films');
-
+        navigate(route);
     }
 
     render() {
-        const { user: { username }, navigation: { closeDrawer } } = this.props;
+        const { user: { username, avatar }, navigation: { closeDrawer } } = this.props;
         const props = {
             onLogOut: this.onLogOut,
             onClose: closeDrawer,
             username,
-            onHomeClick: this.onHomeClick
+            avatar,
+            onNavigateClick: this.onNavigateClick
         };
         return (
             <Sidebar {...props} />

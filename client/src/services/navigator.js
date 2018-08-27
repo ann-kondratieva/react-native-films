@@ -7,6 +7,7 @@ import Login from '../modules/Auth/pages/Login';
 import Register from '../modules/Auth/pages/Register';
 import Sidebar from '../components/SideBar';
 import CommentsContainer from '../modules/Films/pages/Comments';
+import Profile from '../modules/Auth/pages/Profile';
 
 
 const AppStack = createStackNavigator({
@@ -18,6 +19,9 @@ const AppStack = createStackNavigator({
     },
     Comments: {
         screen: CommentsContainer
+    },
+    Profile: {
+        screen: Profile
     }
 },
 {
@@ -28,6 +32,9 @@ const AppStack = createStackNavigator({
 const AppDrawer = createDrawerNavigator({
     Home: {
         screen: AppStack
+    },
+    Profile: {
+        screen: Profile
     }
 },
 {

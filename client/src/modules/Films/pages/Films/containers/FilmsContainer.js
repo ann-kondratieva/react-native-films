@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Container } from 'native-base';
-import { View } from 'react-native';
 
 import MainHeader from '../views/MainHeader';
 import FilmsListContainer from './FilmsListContainer';
 import filmsActionCreators from '../actions';
 import filmSelectors from '../selectors';
-import PickerContainer from './PickerContainer';
+import reactotronReactNative from 'reactotron-react-native';
 
 class FilmsContainer extends Component {
 

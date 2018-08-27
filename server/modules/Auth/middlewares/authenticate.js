@@ -17,4 +17,3 @@ export const localAuthenticate = (req, res, next) => {
     })(req, res, next);
 };
 
-
