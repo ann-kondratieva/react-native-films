@@ -5,7 +5,7 @@ const authActionCreators = {
     getUserRequest: createAction('GET_USER_REQUEST'),
     getUserSuccess: createAction('GET_USER_SUCCESS'),
     getUserError: createAction('GET_USER_ERROR'),
-    authError: createAction('AUTH_ERROR')
+    authError: createAction('AUTH_ERROR'),
 };
 
 export default authActionCreators;

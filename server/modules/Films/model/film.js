@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+import CommentSchema from './comment';
+
 const Schema = mongoose.Schema;
 
 const FilmsSchema = new Schema({
@@ -23,31 +25,13 @@ const FilmsSchema = new Schema({
         }
     }],
     images: Array,
-    comments: [{
-        userId: {
-            type: String,
-            required: true
-        },
-        userName: {
-            type: String,
-            required: true
-        },
-        userAvatar: {
-            type: String,
-        },
-        message: {
-            type: String,
-            required: true
-        },
-        createdAt: {
-            type: Date,
-            required: true
-        }
-    }],
+    comments: [CommentSchema],
     rating: Number
 }, {
     timestamps: true
 });
+
+
 
 
 

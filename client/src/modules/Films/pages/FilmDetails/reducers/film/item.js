@@ -1,6 +1,7 @@
 import { handleActions } from 'redux-actions';
 
 import filmActionCreators from '../../actions';
+import reactotronReactNative from 'reactotron-react-native';
 
 let initialState = {};
 

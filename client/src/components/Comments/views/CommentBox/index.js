@@ -11,13 +11,11 @@ import {
     FlatList,
     RefreshControl
 } from 'react-native';
-import { COMMENT_FORM } from '../../constants';
 
-import CommentForm from '../CommentForm';
 import CommentRow from '../CommentRow';
 import Reactotron from 'reactotron-react-native';
 import { Container } from 'native-base';
-import { colors } from '../../../../../../constants';
+import { colors } from '../../../../constants';
 
 const CommentBox = ({ comments, isRefreshing, onRefresh }) => {
     return (
@@ -27,6 +25,7 @@ const CommentBox = ({ comments, isRefreshing, onRefresh }) => {
                     refreshing={isRefreshing}
                     onRefresh={onRefresh}
                     colors={[colors.primary, colors.secondary]}
+                    progressViewOffset={-20}
                 />
             }
             contentContainerStyle={styles.scrollContainer}

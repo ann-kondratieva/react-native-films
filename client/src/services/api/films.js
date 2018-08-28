@@ -10,7 +10,6 @@ export default {
         };
     },
     getFilmRequest: (params) => {
-        Reactotron.log(params);
         return {
             url: '/api/films/' + params.id,
             method: 'get',

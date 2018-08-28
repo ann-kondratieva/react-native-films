@@ -8,14 +8,14 @@ import { colors } from '../../../../../../constants';
 
 import TabsView from '../Tabs';
 
-const Film = ({ film, openComments, isRefreshing, onRefresh, loading }) => {
+const Film = ({ film, openComments, isRefreshing, onRefresh, loading, isRefreshingComments }) => {
     return (
         <View style={styles.container}>
-            {loading && !isRefreshing ?
+            {loading && !isRefreshing && !isRefreshingComments ?
                 <ActivityIndicator size="large" style={styles.loader} color={colors.primary} /> :
                 <View style={styles.container}>
                     <ImageHeader image={film.image} isRefreshing={isRefreshing} onRefresh={onRefresh} />
-                    <TabsView openComments={openComments} film={film} />
+                    <TabsView openComments={openComments} film={film} isRefreshingComments={isRefreshingComments} onRefresh={onRefresh} />
                 </View>}
         </View >
     );
@@ -27,6 +27,7 @@ Film.propTypes = {
     openComments: PropTypes.func.isRequired,
     isRefreshing: PropTypes.bool.isRequired,
     onRefresh: PropTypes.func.isRequired,
+    isRefreshingComments: PropTypes.bool.isRequired,
 };
 
 export default Film;

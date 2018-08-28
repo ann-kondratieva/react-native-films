@@ -22,20 +22,23 @@ class FilmContainer extends Component {
     handleCommentSubmit({ message }) {
         const { film, user, actions: { updateFilmRequest } } = this.props;
         let comment = {
-            userId: user._id,
-            userName: user.username,
-            userAvatar: user.avatar,
+            user: user._id,
             message,
             createdAt: new Date()
         };
-        film.comments.push(comment);
-        updateFilmRequest({ film });
+        const resFilm = JSON.parse(JSON.stringify(film));
+        resFilm.comments.push(comment);
+        updateFilmRequest({ film: resFilm });
     }
 
-    onRefresh() {
+    onRefresh(isComments) {
         const { film } = this.props;
-        const { actions: { startRefreshing, getFilmRequest } } = this.props;
-        startRefreshing();
+        const { actions: { startRefreshing, getFilmRequest, startRefreshingComments } } = this.props;
+        if (isComments) {
+            startRefreshingComments();
+        } else {
+            startRefreshing();
+        }
         getFilmRequest({ id: film._id });
     }
 
@@ -49,13 +52,14 @@ class FilmContainer extends Component {
     }
 
     render() {
-        const { film, loading, isRefreshing } = this.props;
+        const { film, loading, isRefreshing, isRefreshingComments } = this.props;
         const props = {
             film,
             loading,
             openComments: this.openComments,
             isRefreshing,
-            onRefresh: this.onRefresh
+            onRefresh: this.onRefresh,
+            isRefreshingComments,
         };
 
         return (
@@ -67,7 +71,8 @@ class FilmContainer extends Component {
 function mapStateToProps(state) {
     return {
         user: userSelectors.getUser(state),
-        isRefreshing: filmSelectors.isRefreshing(state)
+        isRefreshing: filmSelectors.isRefreshing(state),
+        isRefreshingComments: filmSelectors.isRefreshingComments(state),
     };
 }
 
@@ -85,6 +90,7 @@ FilmContainer.propTypes = {
     }),
     actions: PropTypes.object.isRequired,
     isRefreshing: PropTypes.bool.isRequired,
+    isRefreshingComments: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilmContainer);

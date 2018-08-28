@@ -12,7 +12,7 @@ import { colors } from '../../../../../../constants';
 import { robotoWeights } from 'react-native-typography';
 import CommentTab from '../CommentTab';
 
-const TabsView = ({ film, openComments }) => {
+const TabsView = ({ film, openComments, isRefreshingComments, onRefresh }) => {
     return (
         <Tabs tabContainerStyle={styles.container} tabBarUnderlineStyle={styles.underline}>
             <Tab heading="INFO" tabStyle={styles.item} textStyle={styles.text} activeTextStyle={styles.textActive} activeTabStyle={styles.itemActive}>
@@ -22,7 +22,7 @@ const TabsView = ({ film, openComments }) => {
                 <Gallery images={film ? film.images : []} />
             </Tab>
             <Tab heading="COMMENTS" tabStyle={styles.item} textStyle={styles.text} activeTextStyle={styles.textActive} activeTabStyle={styles.itemActive}>
-                <CommentTab comments={film ? film.comments : []} openComments={openComments} />
+                <CommentTab comments={film ? film.comments : []} openComments={openComments} isRefreshingComments={isRefreshingComments} onRefresh={onRefresh} />
             </Tab>
         </Tabs>
     );
@@ -31,6 +31,8 @@ const TabsView = ({ film, openComments }) => {
 TabsView.propTypes = {
     film: PropTypes.object,
     openComments: PropTypes.func.isRequired,
+    isRefreshingComments: PropTypes.bool.isRequired,
+    onRefresh: PropTypes.func.isRequired,
 };
 
 export default TabsView;

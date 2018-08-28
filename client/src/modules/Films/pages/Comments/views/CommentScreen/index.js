@@ -14,11 +14,9 @@ import {
 import { COMMENT_FORM } from '../../constants';
 
 import CommentForm from '../CommentForm';
-import CommentRow from '../CommentRow';
 import Reactotron from 'reactotron-react-native';
 import { Container } from 'native-base';
-import { colors } from '../../../../../../constants';
-import CommentBox from '../CommentBox';
+import CommentBox from '../../../../../../components/Comments';
 
 const CommentScreen = ({ comments, handleCommentSubmit, isRefreshing, onRefresh }) => {
     const formProps = {

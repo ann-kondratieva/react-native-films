@@ -15,12 +15,12 @@ import { Button, Fab } from 'native-base';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import reactotronReactNative from 'reactotron-react-native';
-import CommentBox from '../../../Comments/views/CommentBox';
+import CommentBox from '../../../../../../components/Comments';
 
-const CommentTab = ({ comments, openComments }) => {
+const CommentTab = ({ comments, openComments, isRefreshingComments, onRefresh }) => {
     return (
         <View style={styles.root}>
-            <CommentBox comments={comments} />
+            <CommentBox comments={comments} isRefreshing={isRefreshingComments} onRefresh={() => onRefresh(true)} />
             <Fab
                 containerStyle={{}}
                 style={styles.fab}
@@ -36,6 +36,8 @@ const CommentTab = ({ comments, openComments }) => {
 CommentTab.propTypes = {
     comments: PropTypes.array,
     openComments: PropTypes.func.isRequired,
+    isRefreshingComments: PropTypes.bool.isRequired,
+    onRefresh: PropTypes.func.isRequired,
 };
 
 export default CommentTab;

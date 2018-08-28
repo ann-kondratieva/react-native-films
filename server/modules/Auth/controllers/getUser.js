@@ -1,7 +1,10 @@
-const getUser = (req, res) => {
+import User from '../model/user';
+
+const getUser = async (req, res) => {
     const { user } = req;
-    user.password = null;
-    res.json(user);
+    let resUser = user;
+    resUser.password = null;
+    res.json({ user: resUser });
 };
 
 export default getUser;

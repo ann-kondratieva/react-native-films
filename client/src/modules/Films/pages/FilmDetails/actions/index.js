@@ -11,6 +11,7 @@ const filmActionCreators = {
     updateFilmRatingSuccess: createAction('UPDATE_FILM_RATING_SUCCESS'),
     updateFilmRatingError: createAction('UPDATE_FILM_RATING_ERROR'),
     startRefreshing: createAction('START_FILM_REFRESHING'),
+    startRefreshingComments: createAction('START_FILM_COMMENTS_REFRESHING'),
 };
 
 export default filmActionCreators;

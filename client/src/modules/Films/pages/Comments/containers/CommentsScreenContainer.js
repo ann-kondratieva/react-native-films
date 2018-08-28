@@ -11,7 +11,7 @@ import commentActionCreators from '../actions';
 import selectors from '../selectors';
 import CommentScreen from '../views/CommentScreen';
 
-class CommentsContainer extends Component {
+class CommentsScreenContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -62,7 +62,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-CommentsContainer.propTypes = {
+CommentsScreenContainer.propTypes = {
     navigation: PropTypes.shape({
         goBack: PropTypes.func.isRequired
     }),
@@ -72,4 +72,4 @@ CommentsContainer.propTypes = {
     isRefreshing: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsScreenContainer);
