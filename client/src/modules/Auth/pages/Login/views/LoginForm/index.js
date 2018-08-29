@@ -7,6 +7,7 @@ import { View } from 'react-native';
 import { Button, Text } from 'native-base';
 import styles from './styles';
 import RenderTextInput from '../../../../../../views/RenderTextInput';
+import { trim } from '../../../../../../services/normalizers';
 
 const LoginForm = (props) => {
     const { handleSubmit, pristine, submitting } = props;
@@ -20,6 +21,7 @@ const LoginForm = (props) => {
                 placeholder='Email'
                 placeholderTextColor='white'
                 component={RenderTextInput}
+                normalize={trim}
             />
             <Field
                 style={styles.textField}
@@ -30,6 +32,7 @@ const LoginForm = (props) => {
                 secureTextEntry={true}
                 placeholderTextColor='white'
                 component={RenderTextInput}
+                normalize={trim}
             />
             <Button style={styles.button} disabled={pristine || submitting} block onPress={handleSubmit} title='login'>
                 <Text style={styles.logIn}>SIGN IN</Text>

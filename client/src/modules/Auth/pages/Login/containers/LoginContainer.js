@@ -11,6 +11,7 @@ import { loginSchema } from '../constants';
 import { Container } from 'native-base';
 import LoginScreen from '../views/LoginScreen';
 import ModalWindow from '../../../../../components/Modal';
+import loginSelectors from '../selectors';
 
 class LoginContainer extends Component {
 
@@ -35,11 +36,13 @@ class LoginContainer extends Component {
     }
 
     render() {
+        const { isLoading } = this.props;
         const props = {
             onSubmit: this.handleSubmit,
             form: LOGIN_FORM,
             validate: createValidator(loginSchema),
-            onSignUpClick: this.onSignUpClick
+            onSignUpClick: this.onSignUpClick,
+            isLoading
         };
         return (
             <Container>
@@ -48,6 +51,12 @@ class LoginContainer extends Component {
             </Container>
         );
     }
+}
+
+function mapStateToProps(state) {
+    return {
+        isLoading: loginSelectors.isLoading(state)
+    };
 }
 
 
@@ -60,7 +69,8 @@ function mapDispatchToProps(dispatch) {
 
 LoginContainer.propTypes = {
     actions: PropTypes.object.isRequired,
-    navigation: PropTypes.object.isRequired
+    navigation: PropTypes.object.isRequired,
+    isLoading: PropTypes.bool.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

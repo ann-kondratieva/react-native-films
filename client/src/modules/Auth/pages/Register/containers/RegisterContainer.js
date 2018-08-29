@@ -12,6 +12,7 @@ import { registerSchema } from '../constants';
 import RegisterScreen from '../views/RegisterScreen';
 import { Container } from 'native-base';
 import ModalWindow from '../../../../../components/Modal';
+import registerSelectors from '../selectors';
 
 class RegisterContainer extends Component {
 
@@ -37,11 +38,13 @@ class RegisterContainer extends Component {
     }
 
     render() {
+        const { isLoading } = this.props;
         const props = {
             onSubmit: this.handleSubmit,
             form: REGISTER_FORM,
             validate: createValidator(registerSchema),
-            onSignInClick: this.onSignInClick
+            onSignInClick: this.onSignInClick,
+            isLoading
         };
         return (
             <Container>
@@ -50,6 +53,12 @@ class RegisterContainer extends Component {
             </Container>
         );
     }
+}
+
+function mapStateToProps(state) {
+    return {
+        isLoading: registerSelectors.isLoading(state)
+    };
 }
 
 
@@ -63,6 +72,7 @@ function mapDispatchToProps(dispatch) {
 RegisterContainer.propTypes = {
     navigation: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
+    isLoading: PropTypes.bool.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(RegisterContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterContainer);

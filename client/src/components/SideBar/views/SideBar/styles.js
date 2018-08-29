@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
         margin: 10
     },
     header: {
-        height: 60,
         alignItems: 'flex-start',
         justifyContent: 'center',
         paddingLeft: 20,
-        paddingBottom: 5
+        paddingBottom: 10,
+        paddingTop: 10
     },
     icon: {
         color: colors.primary
