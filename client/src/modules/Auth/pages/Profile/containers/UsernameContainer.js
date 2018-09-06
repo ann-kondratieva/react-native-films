@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Username from '../views/Username';
-import reactotronReactNative from 'reactotron-react-native';
 import { USERNAME_FORM } from '../constants';
 import profileActionCreators from '../actions';
 
@@ -42,7 +41,6 @@ class UsernameContainer extends Component {
 
     onClose() {
         this.setState({ isEditing: !this.state.isEditing, isShowingEdit: false });
-
     }
 
     render() {
@@ -63,13 +61,6 @@ class UsernameContainer extends Component {
         );
     }
 };
-
-/* function mapStateToProps(state) {
-    return {
-        user: userSelectors.getUser(state),
-        //isRefreshing: filmSelectors.isRefreshing(state)
-    };
-} */
 
 function mapDispatchToProps(dispatch) {
     return {

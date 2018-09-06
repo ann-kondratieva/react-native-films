@@ -16,6 +16,14 @@ export default {
             headers: {}
         };
     },
+    saveFilmRequest: (payload) => {
+        return {
+            url: '/api/films',
+            method: 'post',
+            data: payload,
+            headers: {}
+        };
+    },
     updateFilmRatingRequest: (payload) => {
         return {
             url: '/api/films/' + payload.filmId + '/rating',

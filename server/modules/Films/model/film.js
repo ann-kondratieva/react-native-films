@@ -24,6 +24,9 @@ const FilmsSchema = new Schema({
             required: true
         }
     }],
+    user: {
+        type: mongoose.Schema.Types.ObjectId
+    },
     images: Array,
     comments: [CommentSchema],
     rating: Number

@@ -14,7 +14,7 @@ import { SERVICE_HEIGHT } from '../../constants';
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 const FilmsList = ({ items, loadMore, hasMore, onClick, isRefreshing, onRefresh, isLoading, isFabVisible, scrollAnim, handleOnScroll,
-    _onMomentumScrollBegin, _onMomentumScrollEnd, _onScrollEndDrag }) => {
+    _onMomentumScrollBegin, _onMomentumScrollEnd, _onScrollEndDrag, onScroll }) => {
     return (
         <React.Fragment>
             <AnimatedFlatList
@@ -27,15 +27,7 @@ const FilmsList = ({ items, loadMore, hasMore, onClick, isRefreshing, onRefresh,
                 onMomentumScrollEnd={_onMomentumScrollEnd}
                 onScrollEndDrag={_onScrollEndDrag}
                 scrollEventThrottle={1}
-                onScroll={Animated.event(
-                    [{ nativeEvent: { contentOffset: { y: scrollAnim } } }],
-                    {
-                        useNativeDriver: true,
-                        listener: event => {
-                            handleOnScroll(event);
-                        },
-                    },
-                )}
+                onScroll={onScroll}
                 contentContainerStyle={styles.container}
                 data={items}
                 numColumns={2}

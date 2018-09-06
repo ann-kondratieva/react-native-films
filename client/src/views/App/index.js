@@ -5,6 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Navigator from '../Navigator';
 import { store } from '../../store';
 import { persistor } from '../../store';
+import themes from '../../styles/themes';
 
 import MessageQueue from 'MessageQueue';
 MessageQueue.spy(true);

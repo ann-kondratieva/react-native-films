@@ -1,10 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { robotoWeights } from 'react-native-typography';
+import { createStyle } from 'react-native-theming';
+
 import { colors } from '../../../../constants';
 
-const styles = StyleSheet.create({
+const styles = createStyle({
     container: {
-        backgroundColor: 'white'
+        backgroundColor: '@backgroundColor',
+        flex: 1
     },
     headerText: {
         ...robotoWeights.light,
@@ -34,7 +37,8 @@ const styles = StyleSheet.create({
     },
     itemText: {
         ...robotoWeights.regular,
-        color: colors.text
+        color: colors.text,
+        fontSize: 16
     },
     noUnderline: {
         borderBottomWidth: 0

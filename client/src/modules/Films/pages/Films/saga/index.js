@@ -22,7 +22,6 @@ const loadFilms = function* () {
         end: films.length + FILMS_LIMIT,
         search: searchFormValues ? searchFormValues.search : undefined,
         orderBy: sortFormValues ? sortFormValues.sortBy : undefined,
-
     }));
 };
 

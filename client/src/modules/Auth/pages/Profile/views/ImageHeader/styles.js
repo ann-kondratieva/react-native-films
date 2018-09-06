@@ -1,7 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
-import { Dimensions } from 'react-native';
-const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     linearGradient: {
@@ -15,6 +12,26 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderWidth: 1
     },
+    imageContainer: {
+        position: 'absolute'
+    },
+    loader: {
+        position: 'relative',
+
+    },
+    loaderContainer: {
+        position: 'absolute',
+        width: 160,
+        height: 160
+    },
+    imageLoading: {
+        width: 160,
+        height: 160,
+        borderRadius: 100,
+        borderColor: 'white',
+        borderWidth: 1,
+        position: 'absolute'
+    },
     scrollContainer: {
         flexGrow: 1,
         alignItems: 'center',
@@ -23,7 +40,9 @@ const styles = StyleSheet.create({
     username: {
         width: '100%',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        position: 'relative',
+        top: 100
     }
 });
 

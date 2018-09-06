@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
+import Theme from 'react-native-theming';
 
 import styles from './styles';
-import { Content, List, ListItem, Text, Left, Body, Right, Header, Button, View } from 'native-base';
+import { Content, List, ListItem, Left, Body, Right, Header, Button } from 'native-base';
+import { View, Text, StatusBar } from 'react-native';
 import { Image, TouchableOpacity } from 'react-native';
 import { colors } from '../../../../constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
@@ -11,7 +13,7 @@ import placeholder from '../../../../../userplaceholder.png';
 
 const Sidebar = ({ onLogOut, onClose, username, onNavigateClick, avatar }) => {
     return (
-        <View style={styles.container}>
+        <Theme.View style={styles.container}>
             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={[colors.primary, colors.secondary]} style={styles.linearGradient}>
                 <View style={styles.serviceBar} >
 
@@ -39,6 +41,14 @@ const Sidebar = ({ onLogOut, onClose, username, onNavigateClick, avatar }) => {
                         <Text style={styles.itemText}>Home</Text>
                     </Body>
                 </ListItem>
+                <ListItem icon style={styles.item} onPress={() => onNavigateClick('AddFilm')}>
+                    <Left>
+                        <Icon style={styles.icon} size={23} name="plus" />
+                    </Left>
+                    <Body style={styles.noUnderline}>
+                        <Text style={styles.itemText}>Add Film</Text>
+                    </Body>
+                </ListItem>
                 <ListItem icon style={styles.item} onPress={() => onNavigateClick('Profile')}>
                     <Left>
                         <Icon style={styles.icon} size={23} name="user" />
@@ -56,7 +66,7 @@ const Sidebar = ({ onLogOut, onClose, username, onNavigateClick, avatar }) => {
                     </Body>
                 </ListItem>
             </List>
-        </View>
+        </Theme.View>
     );
 };
 

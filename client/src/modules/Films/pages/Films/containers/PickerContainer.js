@@ -49,7 +49,8 @@ function mapDispatchToProps(dispatch) {
 
 PickerContainer.propTypes = {
     actions: PropTypes.object.isRequired,
-    sortForm: PropTypes.object
+    sortForm: PropTypes.object,
+    clampedScroll: PropTypes.object.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PickerContainer);

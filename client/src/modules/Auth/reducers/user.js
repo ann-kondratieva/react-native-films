@@ -4,15 +4,11 @@ import authActionCreators from '../actions';
 import loginActionCreators from '../pages/Login/actions';
 import registerActionCreators from '../pages/Register/actions';
 import profileActionCreators from '../pages/Profile/actions';
-import reactotronReactNative from 'reactotron-react-native';
 
 let initialState = {};
 
 const user = handleActions(
     {
-        [authActionCreators.getUserRequest]: () => {
-            return initialState;
-        },
         [authActionCreators.getUserSuccess]: (state, action) => {
             return action.response;
         },

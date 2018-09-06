@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { View, ScrollView, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import styles from './styles';
-import { colors } from '../../constants';
 import Spinner from 'react-native-spinkit';
 
 const Loading = () => {

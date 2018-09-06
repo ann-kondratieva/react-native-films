@@ -17,6 +17,10 @@ class FilmsListContainer extends Component {
 
     constructor(props) {
         super(props);
+
+        const scrollAnim = new Animated.Value(0);
+        const offsetAnim = new Animated.Value(0);
+
         this.loadMore = this.loadMore.bind(this);
         this.onRefresh = this.onRefresh.bind(this);
         this.handleOnScroll = this.handleOnScroll.bind(this);
@@ -24,9 +28,6 @@ class FilmsListContainer extends Component {
         this._onMomentumScrollBegin = this._onMomentumScrollBegin.bind(this);
         this._onMomentumScrollEnd = this._onMomentumScrollEnd.bind(this);
         this._onScrollEndDrag = this._onScrollEndDrag.bind(this);
-
-        const scrollAnim = new Animated.Value(0);
-        const offsetAnim = new Animated.Value(0);
 
         this.state = {
             isFabVisible: false,
@@ -45,20 +46,20 @@ class FilmsListContainer extends Component {
                 SERVICE_HEIGHT
             ),
         };
-    }
+    };
 
     _clampedScrollValue = 0;
     _offsetValue = 0;
     _scrollValue = 0;
 
     componentDidMount() {
+        this.loadMore();
         this.state.scrollAnim.addListener(({ value }) => {
-            //reactotronReactNative.log(value);
             const diff = value - this._scrollValue;
             this._scrollValue = value;
             this._clampedScrollValue = Math.min(
                 Math.max(this._clampedScrollValue + diff, 0),
-                NAVBAR_HEIGHT - STATUS_BAR_HEIGHT,
+                SERVICE_HEIGHT,
             );
         });
         this.state.offsetAnim.addListener(({ value }) => {
@@ -98,7 +99,6 @@ class FilmsListContainer extends Component {
     };
 
     _onMomentumScrollEnd() {
-        reactotronReactNative.log(this.state.scrollAnim.__getValue());
         const toValue = this._scrollValue > SERVICE_HEIGHT &&
             this._clampedScrollValue > (SERVICE_HEIGHT) / 2
             ? this._offsetValue + SERVICE_HEIGHT
@@ -111,8 +111,8 @@ class FilmsListContainer extends Component {
     };
 
     loadMore() {
-        const { filmsState: { loading } } = this.props;
-        if (!loading) {
+        const { filmsState: { isLoading } } = this.props;
+        if (!isLoading) {
             const { actions: { loadMoreFilms } } = this.props;
             loadMoreFilms();
         }
@@ -125,13 +125,8 @@ class FilmsListContainer extends Component {
         this.loadMore();
     }
 
-    componentDidMount() {
-        this.loadMore();
-    }
-
     render() {
         const { filmsState: { isRefreshing, items, hasMore, isLoading } } = this.props;
-        //reactotronReactNative.log(this.state.scrollAnim.__getValue());
         const props = {
             items,
             onClick: this.onFilmClick,
@@ -145,13 +140,23 @@ class FilmsListContainer extends Component {
             scrollAnim: this.state.scrollAnim,
             _onScrollEndDrag: this._onScrollEndDrag,
             _onMomentumScrollBegin: this._onMomentumScrollBegin,
-            _onMomentumScrollEnd: this._onMomentumScrollEnd
+            _onMomentumScrollEnd: this._onMomentumScrollEnd,
+            onScroll: Animated.event(
+                [{ nativeEvent: { contentOffset: { y: this.state.scrollAnim } } }],
+                {
+                    useNativeDriver: true,
+                    listener: event => {
+                        this.handleOnScroll(event);
+                    },
+                },
+            )
         };
         return (
             <Container >
                 <FilmsList {...props} />
                 <PickerContainer clampedScroll={this.state.clampedScroll} />
             </Container>
+
         );
     }
 };

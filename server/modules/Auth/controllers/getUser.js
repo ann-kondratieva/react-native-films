@@ -1,10 +1,8 @@
-import User from '../model/user';
-
 const getUser = async (req, res) => {
     const { user } = req;
-    let resUser = user;
+    let resUser = JSON.parse(JSON.stringify(user));
     resUser.password = null;
-    res.json({ user: resUser });
+    res.json(resUser);
 };
 
 export default getUser;

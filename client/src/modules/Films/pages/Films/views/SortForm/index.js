@@ -26,7 +26,7 @@ const SortForm = (props) => {
     });
     return (
         <Animated.View style={[styles.serviceContainer, { transform: [{ translateY: navbarTranslate }], opacity: navbarOpacity }]} >
-            <View keyboardShouldPersistTaps={'handled'} style={styles.container}>
+            <View style={styles.container}>
                 <View style={styles.fieldContainer}>
                     <Field
                         style={styles.textField}

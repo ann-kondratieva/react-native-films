@@ -6,9 +6,6 @@ const styles = StyleSheet.create({
     textField: {
 
     },
-    fieldContainer: {
-        // width: '90%',
-    },
     container: {
         width: '60%',
         paddingLeft: '10%',

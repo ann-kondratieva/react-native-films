@@ -6,8 +6,9 @@ import FilmDetails from '../modules/Films/pages/FilmDetails';
 import Login from '../modules/Auth/pages/Login';
 import Register from '../modules/Auth/pages/Register';
 import Sidebar from '../components/SideBar';
-import CommentsContainer from '../modules/Films/pages/Comments';
+import Comments from '../modules/Films/pages/Comments';
 import Profile from '../modules/Auth/pages/Profile';
+import AddFilm from '../modules/Films/pages/AddFilm';
 
 
 const AppStack = createStackNavigator({
@@ -18,10 +19,13 @@ const AppStack = createStackNavigator({
         screen: Films
     },
     Comments: {
-        screen: CommentsContainer
+        screen: Comments
     },
     Profile: {
         screen: Profile
+    },
+    AddFilm: {
+        screen: AddFilm
     }
 },
 {
