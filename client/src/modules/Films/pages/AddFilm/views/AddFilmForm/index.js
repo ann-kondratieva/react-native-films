@@ -11,12 +11,10 @@ import RenderTextInput from '../../../../../../views/RenderTextInput';
 import { trim } from '../../../../../../services/normalizers';
 import { colors } from '../../../../../../constants';
 
-const LoginForm = (props) => {
+const AddFilmForm = (props) => {
     const { handleSubmit, pristine, submitting } = props;
     return (
         <ScrollView keyboardShouldPersistTaps={'handled'} >
-            <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={[colors.primary, colors.secondary]} style={styles.linearGradient}>
-            </LinearGradient>
             <View style={styles.container}>
                 <Field
                     style={styles.textField}
@@ -48,11 +46,11 @@ const LoginForm = (props) => {
     );
 };
 
-LoginForm.propTypes = {
+AddFilmForm.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     pristine: PropTypes.bool.isRequired,
     submitting: PropTypes.bool.isRequired,
     error: PropTypes.string
 };
 
-export default reduxForm()(LoginForm);
+export default reduxForm()(AddFilmForm);

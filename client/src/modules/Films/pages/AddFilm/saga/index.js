@@ -10,6 +10,8 @@ const redirect = function* (action) {
     yield put(clearFilms());
     yield put(loadMoreFilms());
     navigate('Films');
+    //yield put(addFilmActionCreators.redirect());
+
 };
 
 const addFilmSaga = function* () {

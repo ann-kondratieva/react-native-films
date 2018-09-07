@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Reactotron from 'reactotron-react-native';
-import PageHeader from '../../../../../components/Header';
+
 import AddFilmScreen from '../views/AddFilmScreen';
 import userSelectors from '../../../../Auth/selectors';
 import { ADD_FILM_FORM } from '../constants';
 import addFilmActionCreators from '../actions';
+import selectors from '../selectors';
+import { uploadToCloud } from '../../../../../services/firebase';
+import reactotronReactNative from 'reactotron-react-native';
 
 class AddFilmScreenContainer extends Component {
 
@@ -17,26 +20,27 @@ class AddFilmScreenContainer extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(film) {
-        const { actions: { saveFilmsRequest }, user } = this.props;
+    async handleSubmit(film) {
+        const { actions: { saveFilmsRequest }, user, image } = this.props;
+        const imageUrl = await uploadToCloud({ ...image, user });
+        reactotronReactNative.log(imageUrl);
         film.user = user._id;
+        film.image = imageUrl;
         saveFilmsRequest({ film });
     }
 
     render() {
-        const { navigation } = this.props;
+        const { navigation, isLoading } = this.props;
         const { goBack } = navigation;
-        const headerProps = {
+        const props = {
+            form: ADD_FILM_FORM,
+            onSubmit: this.handleSubmit,
+            isLoading,
             title: 'Add Film',
             goBack
         };
-        const props = {
-            form: ADD_FILM_FORM,
-            onSubmit: this.handleSubmit
-        };
         return (
             <React.Fragment>
-                <PageHeader {...headerProps} />
                 <AddFilmScreen {...props} />
             </React.Fragment>
         );
@@ -46,12 +50,13 @@ class AddFilmScreenContainer extends Component {
 function mapStateToProps(state) {
     return {
         user: userSelectors.getUser(state),
+        image: selectors.getImage(state),
+        isLoading: selectors.isLoading(state)
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        //filmActions: bindActionCreators(filmActionCreators, dispatch),
         actions: bindActionCreators(addFilmActionCreators, dispatch),
     };
 }
@@ -62,6 +67,8 @@ AddFilmScreenContainer.propTypes = {
     }),
     user: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
+    image: PropTypes.object,
+    isLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddFilmScreenContainer);
