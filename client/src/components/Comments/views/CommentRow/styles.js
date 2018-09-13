@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 import { colors } from '../../../../constants';
 import { Dimensions } from 'react-native';
 const { width } = Dimensions.get('window');
@@ -24,18 +24,18 @@ const styles = StyleSheet.create({
         marginRight: 20
     },
     time: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         fontSize: 11,
         color: '#808080'
     },
     name: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         fontSize: 16,
         fontWeight: 'bold',
         color: colors.text
     },
     text: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
     },
     textContainer: {
         maxWidth: Dimensions.get('window').width - Dimensions.get('window').width / 4

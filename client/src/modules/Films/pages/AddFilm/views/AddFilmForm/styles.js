@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 import { colors } from '../../../../../../constants';
 
 const styles = StyleSheet.create({
@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
         elevation: 0
     },
     logIn: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         fontSize: 16,
         color: colors.primary,
     },
     textField: {
-        ...robotoWeights.light,
+        ...systemWeights.light,
         backgroundColor: 'transparent',
         color: colors.primary,
     },

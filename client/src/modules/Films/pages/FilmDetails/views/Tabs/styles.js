@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 import { colors } from '../../../../../../constants';
 
 const styles = StyleSheet.create({
@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     text: {
-        ...robotoWeights.light,
+        ...systemWeights.light,
         color: colors.primary,
     },
     textActive: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         color: colors.primary,
     },
     itemActive: {

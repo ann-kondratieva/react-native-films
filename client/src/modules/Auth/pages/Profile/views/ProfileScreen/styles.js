@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 
 const styles = StyleSheet.create({
     container: {

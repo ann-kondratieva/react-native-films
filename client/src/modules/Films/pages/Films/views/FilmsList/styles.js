@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 import { colors } from '../../../../../../constants';
 import { SERVICE_HEIGHT } from '../../constants';
 
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     text: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         marginTop: 100
     }
 });

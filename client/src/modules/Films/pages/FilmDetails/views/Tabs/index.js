@@ -9,7 +9,7 @@ import styles from './styles';
 import FilmData from '../FilmData';
 import Gallery from '../../../../../../components/Gallery';
 import { colors } from '../../../../../../constants';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 import CommentTab from '../CommentTab';
 
 const TabsView = ({ film, openComments, isRefreshingComments, onRefresh }) => {

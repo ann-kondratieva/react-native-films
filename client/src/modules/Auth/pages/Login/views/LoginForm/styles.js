@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 
 const styles = StyleSheet.create({
     button: {
@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
         elevation: 0
     },
     logIn: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         fontSize: 18,
         color: 'rgba(255, 255, 255, 0.8)',
     },
     textField: {
-        ...robotoWeights.light,
+        ...systemWeights.light,
         backgroundColor: 'transparent',
         marginTop: 8,
         color: 'white',

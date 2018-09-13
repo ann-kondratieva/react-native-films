@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 
 const styles = StyleSheet.create({
     container: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         marginRight: 5
     },
     textField: {
-        ...robotoWeights.light,
+        ...systemWeights.light,
         backgroundColor: 'transparent',
         color: 'white',
         height: 40,

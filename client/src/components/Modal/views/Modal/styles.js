@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     buttonText: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         fontSize: 17,
         marginLeft: 'auto',
         marginRight: 'auto'
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         height: 40
     },
     headerText: {
-        ...robotoWeights.bold,
+        ...systemWeights.bold,
         fontSize: 18,
         marginBottom: 3
     },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     modalText: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
     },
 });
 

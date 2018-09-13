@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 
 const styles = StyleSheet.create({
     container: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         height: 160
     },
     text: {
-        ...robotoWeights.light,
+        ...systemWeights.light,
         marginTop: 5
     },
     touchContainer: {

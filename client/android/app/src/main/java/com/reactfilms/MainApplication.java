@@ -3,6 +3,49 @@ package com.reactfilms;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.github.xinthink.rnmk.ReactMaterialKitPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.imagepicker.ImagePickerPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -30,6 +73,49 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
+            new RNFetchBlobPackage(),
+            new VectorIconsPackage(),
+            new RNSpinkitPackage(),
+            new PhotoViewPackage(),
+            new ReactMaterialKitPackage(),
+            new LinearGradientPackage(),
+            new ImagePickerPackage(),
+            new RNFetchBlobPackage(),
+            new VectorIconsPackage(),
+            new RNSpinkitPackage(),
+            new PhotoViewPackage(),
+            new ReactMaterialKitPackage(),
+            new LinearGradientPackage(),
+            new ImagePickerPackage(),
+            new RNFetchBlobPackage(),
+            new VectorIconsPackage(),
+            new RNSpinkitPackage(),
+            new PhotoViewPackage(),
+            new ReactMaterialKitPackage(),
+            new LinearGradientPackage(),
+            new ImagePickerPackage(),
+            new RNFetchBlobPackage(),
+            new VectorIconsPackage(),
+            new RNSpinkitPackage(),
+            new PhotoViewPackage(),
+            new ReactMaterialKitPackage(),
+            new LinearGradientPackage(),
+            new ImagePickerPackage(),
+            new RNFetchBlobPackage(),
+            new VectorIconsPackage(),
+            new RNSpinkitPackage(),
+            new PhotoViewPackage(),
+            new ReactMaterialKitPackage(),
+            new LinearGradientPackage(),
+            new ImagePickerPackage(),
+            new RNFetchBlobPackage(),
+            new VectorIconsPackage(),
+            new RNSpinkitPackage(),
+            new PhotoViewPackage(),
+            new ReactMaterialKitPackage(),
+            new LinearGradientPackage(),
+            new ImagePickerPackage(),
             new RNSpinkitPackage(),
             new RNFetchBlobPackage(),
             new VectorIconsPackage(),

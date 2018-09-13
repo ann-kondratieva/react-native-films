@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 import { colors } from '../../../../../../constants';
 
 const styles = StyleSheet.create({
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     textField: {
-        ...robotoWeights.redular,
+        ...systemWeights.redular,
         color: colors.primary,
         fontSize: 15
     },

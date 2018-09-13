@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 
 const styles = StyleSheet.create({
     error: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         color: 'red',
         fontSize: 14,
         marginTop: 5

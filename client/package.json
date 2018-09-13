@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-rc.2",
@@ -23,9 +24,9 @@
     "moment": "^2.22.2",
     "native-base": "^2.7.2",
     "prop-types": "^15.6.2",
-    "react": "16.4.1",
+    "react": "16.2.0",
     "react-moment": "^0.7.9",
-    "react-native": "^0.55.4",
+    "react-native": "^0.53.0",
     "react-native-awesome-alerts": "^1.0.8",
     "react-native-axios": "^0.17.1",
     "react-native-collapsible-header": "0.0.14",

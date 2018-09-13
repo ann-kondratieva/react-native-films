@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 
 const styles = StyleSheet.create({
     linearGradient: {
@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         display: 'flex'
     },
     text: {
-        ...robotoWeights.thin,
+        ...systemWeights.thin,
         marginTop: 75,
         textAlign: 'center',
         fontSize: 50,
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         paddingRight: 30,
     },
     spacing: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         flexGrow: 1,
         fontWeight: '300',
         textAlign: 'center',
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         color: 'rgba(255, 255, 255, 0.65)'
     },
     highlight: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         color: 'rgba(255, 255, 255, 0.8)',
         fontWeight: '400',
         fontSize: 18,

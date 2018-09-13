@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 import { createStyle } from 'react-native-theming';
 
 import { colors } from '../../../../constants';
@@ -10,7 +10,7 @@ const styles = createStyle({
         flex: 1
     },
     headerText: {
-        ...robotoWeights.light,
+        ...systemWeights.light,
         color: 'white',
         fontSize: 30,
     },
@@ -36,7 +36,7 @@ const styles = createStyle({
         justifyContent: 'center'
     },
     itemText: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         color: colors.text,
         fontSize: 16
     },

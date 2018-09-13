@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { robotoWeights } from 'react-native-typography';
+import { systemWeights } from 'react-native-typography';
 import { colors } from '../../../../../../constants';
 
 const styles = StyleSheet.create({
     titleText: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         color: '#9C9C9C'
     },
     text: {
-        ...robotoWeights.regular,
+        ...systemWeights.regular,
         color: colors.text,
         paddingTop: 10
     },
