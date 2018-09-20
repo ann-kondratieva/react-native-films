@@ -4,7 +4,7 @@ import passportLocal from 'passport-local';
 import User from '../model/user';
 import { SECRET } from './settings';
 
-const JwtStrategy = passportJwt.Strategy;
+const JwtStrategy = passportJwt.Strategy; 
 const ExtractJwt = passportJwt.ExtractJwt;
 
 const LocalStrategy = passportLocal.Strategy;
@@ -26,7 +26,7 @@ export const authLocalStrategy = new LocalStrategy({
     passwordField: 'password'
 },
 async function (email, password, done) {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email.toLowerCase() });
     if (!user) {
         return done(null, false, { message: 'User doesn\'t exist.' });
     } else {

@@ -1,1 +1,1 @@
-export const SECRET = 'mernsecret';
+export const SECRET = 'mernsecret'; 

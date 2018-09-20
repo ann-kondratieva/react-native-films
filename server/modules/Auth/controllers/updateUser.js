@@ -9,8 +9,8 @@ const updateUser = async (req, res) => {
         if (error.codeName == 'DuplicateKey') {
             return res.status(422).send({ message: 'User already exists' });
         }
-        throw error;
+        throw error; 
     }
 };
 
-export default updateUser;
+export default updateUser; 

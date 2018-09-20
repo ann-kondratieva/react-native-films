@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "cd server && nodemon server.js --exec babel-node --presets es2015,stage-0",
-    "client": "cd client && react-native run-android",
+    "client": "cd client && react-native run-ios",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "npm install && npm run server"
   },
@@ -40,11 +40,14 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "react-native": "^0.56.1"
+    "react-native": "^0.56.1",
+    "reactotron-redux": "^2.1.0",
+    "reactotron-redux-saga": "^2.1.0"
   },
   "devDependencies": {
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "prettier": "^1.13.4"
+    "prettier": "^1.13.4",
+    "reactotron-react-native": "^2.1.0"
   }
 }
